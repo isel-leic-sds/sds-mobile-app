@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">sds-mobile</string>
+    <string name="test">TextView</string>
 </resources>
