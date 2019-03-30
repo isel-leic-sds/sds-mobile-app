@@ -1,4 +1,13 @@
 <resources>
-    <string name="app_name">sds-mobile</string>
-    <string name="test">TextView</string>
+    <string name="app_name">My Application</string>
+    <string name="login">Login</string>
+    <string name="password" >Password</string>
+    <string name="userName">User Name</string>
+    <string name="userID">User ID</string>
+    <string name="name">Name</string>
+    <string name="dailyBtn">Daily</string>
+    <string name="historyBtn">History</string>
+    <string name="profileBtn">Profile</string>
+    <string name="button">nextBtn</string>
+
 </resources>
