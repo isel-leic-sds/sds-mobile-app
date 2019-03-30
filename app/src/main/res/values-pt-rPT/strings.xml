@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="login">Entrar</string>
+    <string name="userID">ID do Utente</string>
+    <string name="password" >Senha</string>
+    <string name="userName">Nome do Utente</string>
+    <string name="name">Nome</string>
+    <string name="dailyBtn">Diario</string>
+    <string name="historyBtn">Historico</string>
+    <string name="profileBtn">Perfil</string>
+    <string name="button">nextBtn</string>
+</resources>
