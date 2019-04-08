@@ -10,4 +10,6 @@
     <string name="historyBtn">Historico</string>
     <string name="profileBtn">Perfil</string>
     <string name="button">nextBtn</string>
+    <string name="sos_contact">Contato SOS</string>
+    <string name="phone_number">Número de Telemóvel:</string>
 </resources>
