@@ -10,7 +10,9 @@ class DigitalHealthSystemApplication : MultiDexApplication() {
 //        DhsService.init(this)
     }
     val repository by lazy {
-        DhsRepository()
+        //        DhsRepository (
+//
+//        )
     }
 }
 
