@@ -11,7 +11,7 @@ class DhsRepository {
 
     fun loadPersonData(context: Context, onSuccess: (Person) -> Unit, onError: (String?) -> Unit) {
         try {
-            val inputStream: InputStream = context.assets.open("personData.json")
+            val inputStream: InputStream = context.resources.openRawResource(R.raw.person_data)
             val inputString = inputStream.bufferedReader().use { it.readText() }
             val obj = JSONObject(inputString)
             val sosContact = obj.getJSONObject("sosContact")

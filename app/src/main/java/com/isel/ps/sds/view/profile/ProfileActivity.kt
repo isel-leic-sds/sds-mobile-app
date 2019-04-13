@@ -20,7 +20,11 @@ class ProfileActivity : BaseActivity<ProfileViewModel>() {
 
     private fun update(person: Person) {
         //Picasso.get().load(person.imageUrl).into(personPic)
-        personPic.setImageResource(R.drawable.ic_launcher_background)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            personPic.setImageDrawable(this.resources.getDrawable(R.drawable.ic_launcher_foreground, this.theme))
+        } else {
+            personPic.setImageDrawable(this.resources.getDrawable(R.drawable.ic_launcher_foreground))
+        }
         personName.text = person.name
         personDateOfBirth.text = person.dateBirth.toString()
         personPhoneNumber.text = person.phoneNumber.toString()
