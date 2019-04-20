@@ -9,5 +9,6 @@
     <string name="historyBtn">History</string>
     <string name="profileBtn">Profile</string>
     <string name="button">nextBtn</string>
-
+    <string name="sos_contact">SOS Contact</string>
+    <string name="phone_number">Phone Number:</string>
 </resources>
