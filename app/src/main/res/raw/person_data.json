@@ -1,0 +1,10 @@
+{
+  "name": "Miguel Nogueira",
+  "dateOfBirth": "1993-3-27",
+  "nif": 123456789,
+  "phoneNumber": 935741963,
+  "sosContact": {
+    "name": "Cristina Silva",
+    "phoneNumber": 963852741
+  }
+}
