@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import com.example.myapplication.LoginViewModel
 import com.isel.ps.sds.R
 import com.isel.ps.sds.view.BaseActivity
+import com.isel.ps.sds.view.menu.MenuActivity
 import com.isel.ps.sds.view.profile.ProfileActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import java.security.MessageDigest
@@ -68,7 +69,7 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
             var userID = userIDEditText.text.toString() // encrypt(password.text.toString())
 
             viewModel.init(userName, password, userID)
-            val i: Intent = Intent(this, ProfileActivity::class.java)
+            val i: Intent = Intent(this, MenuActivity::class.java)
             startActivity(i)
         }
 

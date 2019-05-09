@@ -18,4 +18,10 @@
     <string name="phone_number">Phone Number:</string>
     <string name="sds" translatable="false">Sistema Digital de Saúde</string>
     <string name="sdss" translatable="false">SDS</string>
+    <string name="question1">Presença de dor?</string>
+    <string name="yesButton">Sim</string>
+    <string name="noButton">Não</string>
+    <string name="question2">intensidade da dor?(0-10)</string>
+    <string name="question3">Hora de inicio da dor?</string>
+    <string name="imgProfile">TODO</string>
 </resources>
