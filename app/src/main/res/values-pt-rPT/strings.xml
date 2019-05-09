@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="login">Entrar</string>
-    <string name="userID">ID do Utente</string>
-    <string name="password" >Senha</string>
-    <string name="userName">Nome do Utente</string>
-    <string name="name">Nome</string>
-    <string name="dailyBtn">Diario</string>
+    <string name="app_name">SDS</string>
     <string name="historyBtn">Historico</string>
-    <string name="profileBtn">Perfil</string>
-    <string name="button">nextBtn</string>
-    <string name="sos_contact">Contato SOS</string>
-    <string name="phone_number">Número de Telemóvel:</string>
+    <string name="name">Nome</string>
+    <string name="phone_number">Telefone</string>
+    <string name="profileBtn">Prefil</string>
+    <string name="sos_contact">Contacto SOS</string>
+    <string name="userID">ID de Utilizador</string>
+    <string name="userName">Nome</string>
+    <string name="dailyBtn">Diario</string>
 </resources>

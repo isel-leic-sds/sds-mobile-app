@@ -1,14 +1,21 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="login">Login</string>
-    <string name="password" >Password</string>
+    <string name="app_name">SDS</string>
+    <string name="skip" translatable="false"></string>
+    <string name="login" translatable="false">Login</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password" translatable="false">Password</string>
+
+
+
     <string name="userName">User Name</string>
     <string name="userID">User ID</string>
     <string name="name">Name</string>
     <string name="dailyBtn">Daily</string>
     <string name="historyBtn">History</string>
     <string name="profileBtn">Profile</string>
-    <string name="button">nextBtn</string>
+    <string name="button" translatable="false">nextBtn</string>
     <string name="sos_contact">SOS Contact</string>
     <string name="phone_number">Phone Number:</string>
+    <string name="sds" translatable="false">Sistema Digital de Saúde</string>
+    <string name="sdss" translatable="false">SDS</string>
 </resources>
