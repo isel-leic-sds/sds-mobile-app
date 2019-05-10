@@ -21,7 +21,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.301"/>
+            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.0"/>
 
     <RadioGroup
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
         <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioButton"
+                android:id="@+id/optionButton1"
                 android:text="yes"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 tools:layout_editor_absoluteY="201dp" tools:layout_editor_absoluteX="34dp"/>
@@ -46,7 +46,7 @@
         <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioButton2"
+                android:id="@+id/optionButton2"
                 android:text="no"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         />

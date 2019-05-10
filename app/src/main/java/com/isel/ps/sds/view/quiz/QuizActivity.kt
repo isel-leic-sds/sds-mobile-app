@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_radio_ans.*
 
 class QuizActivity : BaseActivity<QuizViewModel>(),RadioAnsFragment.OnFragmentInteractionListener {
     override fun onFragmentInteraction(uri: Uri) {
-        var radio = radioButton.text
+        var radio = optionButton1.text
     }
 
     override fun defineViewModel(): Class<QuizViewModel> = QuizViewModel::class.java
@@ -26,7 +26,7 @@ class QuizActivity : BaseActivity<QuizViewModel>(),RadioAnsFragment.OnFragmentIn
         viewModel.getQuiz()?.observe(this, Observer { quiz ->
 
             var quest = Question("id1","questãoooooo",Answer("coco","xixi"))
-            supportFragmentManager.beginTransaction().replace(R.id.frame_question,RadioAnsFragment()).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.frame_question,RadioAnsFragment(quest)).commit()
            /*
             var transaction = mang.beginTransaction()
 

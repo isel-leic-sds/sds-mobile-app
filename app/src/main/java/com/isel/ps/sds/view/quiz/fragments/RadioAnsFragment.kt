@@ -27,7 +27,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class RadioAnsFragment() : Fragment() {
+class RadioAnsFragment(var quest:Question) : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -58,7 +58,10 @@ class RadioAnsFragment() : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        question.text="HALA MAHALA"
+        question.text= quest.question
+        optionButton1.text=quest.possibleAnswers.option1
+        optionButton2.text=quest.possibleAnswers.option2
+
     }
 
     override fun onAttach(context: Context) {
@@ -100,7 +103,7 @@ class RadioAnsFragment() : Fragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment RadioAnsFragment.
          */
-
+/*
 
         // TODO: Rename and change types and number of parameters
         @JvmStatic
@@ -111,6 +114,6 @@ class RadioAnsFragment() : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
-
+*/
     }
 }

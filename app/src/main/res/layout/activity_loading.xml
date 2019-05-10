@@ -15,8 +15,8 @@
     <FrameLayout
             android:id="@+id/frame_question"
             android:layout_width="match_parent"
-            android:layout_height="680dp" tools:layout_editor_absoluteX="86dp"
-            app:layout_constraintBottom_toTopOf="@+id/next_question_button" tools:ignore="ExtraText">
+            android:layout_height="match_parent" tools:layout_editor_absoluteX="86dp"
+            >
 
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
