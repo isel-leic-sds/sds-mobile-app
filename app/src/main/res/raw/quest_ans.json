@@ -1,0 +1,24 @@
+{
+  "listOfQuestions": [
+    {
+      "id": "ID1",
+      "question": "Teve Dores?",
+      "possibleAnswers": {
+        "option1": "yes",
+        "option2": "no"
+      }
+    },
+    {
+      "id": "ID2",
+      "question": "Intensidade da Dor?",
+      "possibleAnswers": {
+        "option1": "10"
+      }
+    },
+    {
+      "id": "ID3",
+      "question": "Horas da dor?",
+      "possibleAnswers": {}
+    }
+  ]
+}

@@ -24,4 +24,5 @@
     <string name="question2">intensidade da dor?(0-10)</string>
     <string name="question3">Hora de inicio da dor?</string>
     <string name="imgProfile">TODO</string>
+    <string name="next">next</string>
 </resources>

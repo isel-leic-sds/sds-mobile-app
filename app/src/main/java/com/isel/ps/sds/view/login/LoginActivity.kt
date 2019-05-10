@@ -31,7 +31,7 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
                 sdsTextView.visibility = View.GONE
                 loadingProgressBar.visibility = View.GONE
                 rootView.setBackgroundColor(ContextCompat.getColor(this@LoginActivity, R.color.colorSplashText))
-                sdsImageView.setImageResource(R.drawable.sds)//background_color_book)
+                sdsImageView.setImageResource(R.drawable.sds)
                 startAnimation()
             }
 

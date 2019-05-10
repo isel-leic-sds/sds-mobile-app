@@ -8,20 +8,21 @@ import com.example.myapplication.Login
 import com.isel.ps.sds.view.BaseViewModel
 
 class QuizViewModel(private val app : Application) : BaseViewModel(app) {
-    private var login: LiveData<Login>? = null
-    //private var loginRepo: LoginRepository
+    private var quiz: LiveData<Quiz>? = null
 
 
-    fun init(userName: String, password: String, userId: String) {
-        if (this.login != null ) {
+
+    fun init() {
+        if (this.quiz != null ) {
 
             return
         }
-        Login(userName,userId,password)
-        // try {
-        this.login =  null
-        //LoginRepository.tryLogin(userName,userId)
-        // }
+        this.quiz = QuizRepository.loadQuestionData(app.applicationContext)
+
+    }
+
+    fun getQuiz(): LiveData<Quiz>? {
+        return this.quiz
     }
 
 }
