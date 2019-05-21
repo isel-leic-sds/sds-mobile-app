@@ -3,12 +3,9 @@ package com.isel.ps.sds
 import android.content.Context
 import com.isel.ps.sds.view.profile.Person
 import com.isel.ps.sds.view.profile.SosContact
-import com.isel.ps.sds.view.quiz.Answer
-import com.isel.ps.sds.view.quiz.Question
 import org.json.JSONObject
 import java.io.InputStream
 import java.sql.Date
-import java.util.*
 
 class DhsRepository {
 

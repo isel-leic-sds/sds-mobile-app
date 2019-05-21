@@ -1,7 +1,7 @@
 {
   "listOfQuestions": [
     {
-      "id": "ID1",
+      "type": "Binary",
       "question": "Teve Dores?",
       "possibleAnswers": {
         "option1": "yes",
@@ -9,14 +9,14 @@
       }
     },
     {
-      "id": "ID2",
+      "type": "SeekBar",
       "question": "Intensidade da Dor?",
       "possibleAnswers": {
-        "option1": "10"
+        "option1": "5"
       }
     },
     {
-      "id": "ID3",
+      "type": "Schedule",
       "question": "Horas da dor?",
       "possibleAnswers": {}
     }

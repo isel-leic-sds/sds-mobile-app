@@ -1,12 +1,17 @@
 package com.isel.ps.sds.view.quiz
 
 import android.content.Context
-import androidx.lifecycle.LiveData
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.isel.ps.sds.R
+import com.isel.ps.sds.view.quiz.data.*
+import com.mongodb.MongoClient
+import com.mongodb.MongoClientURI
 import org.json.JSONObject
 import java.io.InputStream
 import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.math.log
 
 object QuizRepository {
 
@@ -18,25 +23,31 @@ object QuizRepository {
             val obj = JSONObject(inputString)
             val listOfQuestions = obj.getJSONArray("listOfQuestions") //Array of  Questions
 
-            val questList: LinkedList<Question> = LinkedList()
+            val questList: ArrayList<Question> = ArrayList()
 
             for (i: Int in 0..(listOfQuestions.length() - 1)) {
                 val quest = listOfQuestions.getJSONObject(i)
                 val ans = quest.getJSONObject("possibleAnswers")
 
                 val question = Question(
-                    quest.getString("id"),
+                    quest.getString("type"),
                     quest.getString("question"),
-                    Answer(
-                        ans.optString("option1",""),
-                        ans.optString("option2","")
-                    )
+                    AnswerOptions(
+                        ans.optString("option1", ""),
+                        ans.optString("option2", "")
+                    ),
+                    UserAnswer()
                 )
                 questList.add(question)
             }
-        val quiz=Quiz(questList)
+
+        questList.add(Question("END"))
+        val quiz= Quiz(questList)
         data.value=quiz;
         return data
 
     }
+
+
+
 }
