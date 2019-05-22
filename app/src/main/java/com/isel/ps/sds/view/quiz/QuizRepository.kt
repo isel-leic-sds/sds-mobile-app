@@ -1,17 +1,13 @@
 package com.isel.ps.sds.view.quiz
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.isel.ps.sds.R
 import com.isel.ps.sds.view.quiz.data.*
-import com.mongodb.MongoClient
-import com.mongodb.MongoClientURI
 import org.json.JSONObject
 import java.io.InputStream
-import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.math.log
+
 
 object QuizRepository {
 
@@ -47,7 +43,4 @@ object QuizRepository {
         return data
 
     }
-
-
-
 }
