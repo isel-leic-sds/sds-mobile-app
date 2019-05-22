@@ -14,6 +14,8 @@ object QuizRepository {
     fun loadQuestionData(context: Context) :MutableLiveData<Quiz> {
             var data: MutableLiveData<Quiz> = MutableLiveData();
 
+
+
             val inputStream: InputStream = context.resources.openRawResource(R.raw.quest_ans)
             val inputString = inputStream.bufferedReader().use { it.readText() }
             val obj = JSONObject(inputString)

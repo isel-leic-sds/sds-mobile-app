@@ -45,4 +45,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 
     implementation 'com.android.volley:volley:1.1.0'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-kotlin
+    implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.9.9'
+
 }

@@ -4,8 +4,8 @@
       "type": "Binary",
       "question": "Teve Dores?",
       "possibleAnswers": {
-        "option1": "yes",
-        "option2": "no"
+        "option1": "SIM",
+        "option2": "NÃO"
       }
     },
     {
