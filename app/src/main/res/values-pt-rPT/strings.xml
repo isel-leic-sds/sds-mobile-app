@@ -9,4 +9,9 @@
     <string name="userID">ID de Utilizador</string>
     <string name="userName">Nome</string>
     <string name="dailyBtn">Diario</string>
+    <string name="final_message">Terminou. Clique next para submeter as suas respostas. Obrigado!</string>
+    <string name="next">Próxima</string>
+    <string name="prev_question_button">Voltar</string>
+    <string name="question">Pergunta</string>
+    <string name="submit">Submeter</string>
 </resources>

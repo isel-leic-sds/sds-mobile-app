@@ -17,16 +17,11 @@
     <string name="phone_number">Phone Number:</string>
     <string name="sds" translatable="false">Sistema Digital de Saúde</string>
     <string name="sdss" translatable="false">SDS</string>
-    <string name="question1">Presença de dor?</string>
-    <string name="yesButton">Sim</string>
-    <string name="noButton">Não</string>
-    <string name="question2">intensidade da dor?(0-10)</string>
-    <string name="question3">Hora de inicio da dor?</string>
-    <string name="imgProfile">TODO</string>
+    <string name="imgProfile" translatable="false">TODO</string>
     <string name="next">next</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="question">xpto</string>
+    <string name="question">Question</string>
     <string name="prev_question_button">Prev</string>
+    <string name="final_message">finished click next to submit your answer</string>
+    <string name="submit">Submit</string>
 </resources>

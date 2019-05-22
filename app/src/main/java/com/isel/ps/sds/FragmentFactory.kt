@@ -2,6 +2,7 @@ package com.isel.ps.sds
 
 import androidx.fragment.app.Fragment
 import com.isel.ps.sds.view.quiz.data.Question
+import com.isel.ps.sds.view.quiz.fragments.FinalAnsFragment
 import com.isel.ps.sds.view.quiz.fragments.RadioAnsFragment
 import com.isel.ps.sds.view.quiz.fragments.SeekAnsFragment
 import com.isel.ps.sds.view.quiz.fragments.TimeAnsFragment
@@ -16,7 +17,7 @@ class FragmentFactory {
         } else if("Schedule".equals(quest.id)){
             return TimeAnsFragment(quest)
         } else if("END".equals(quest.id)){
-            return Fragment() //TODO fragmento final
+            return FinalAnsFragment()
         } else {
             throw RuntimeException("unknown fragment associated to yout question")
         }

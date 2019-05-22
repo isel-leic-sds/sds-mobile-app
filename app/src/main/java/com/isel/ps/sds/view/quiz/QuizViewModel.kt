@@ -1,10 +1,8 @@
 package com.isel.ps.sds.view.quiz
 
 import android.app.Application
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.isel.ps.sds.FragmentFactory
 import com.isel.ps.sds.view.BaseViewModel
 import com.isel.ps.sds.view.quiz.data.Quiz
 
@@ -31,6 +29,7 @@ class QuizViewModel(private val app : Application) : BaseViewModel(app) {
     fun getCurrentIdx():Int{
         return questIdx.value!!
     }
+
     fun nextQuestionNumber():Int {
         var idx = getCurrentIdx()+1
         questIdx.value=idx
@@ -44,6 +43,4 @@ class QuizViewModel(private val app : Application) : BaseViewModel(app) {
         questIdx.value=idx
         return questIdx.value!!
     }
-
-
 }
