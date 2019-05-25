@@ -14,4 +14,6 @@
     <string name="prev_question_button">Voltar</string>
     <string name="question">Pergunta</string>
     <string name="submit">Submeter</string>
+    <string name="notify_Schedule_Text">A que horas pretende ser relembrado?</string>
+    <string name="notification_message">Não se esqueça do Quiz</string>
 </resources>

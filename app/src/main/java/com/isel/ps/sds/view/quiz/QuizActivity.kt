@@ -34,11 +34,12 @@ class QuizActivity : BaseActivity<QuizViewModel>(){
             var frag = FragmentFactory().getFragment(quest)
 
             progressBar.visibility= View.GONE
+            prev_question_button.visibility = View.GONE
             supportFragmentManager.beginTransaction().replace(R.id.frame_question, frag).commit()
         })
 
         next_question_button.setOnClickListener(View.OnClickListener {
-
+            prev_question_button.visibility = View.VISIBLE
             var frag = getCurrentFragment()
             supportFragmentManager.beginTransaction().replace(R.id.frame_question, frag).commit()
         })

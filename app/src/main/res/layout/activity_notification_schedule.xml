@@ -3,7 +3,7 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
                                                    android:layout_width="match_parent"
-                                                   android:layout_height="match_parent" android:id="@+id/linearLayout2">
+                                                   android:layout_height="match_parent" android:id="@+id/linearLayout">
 
     <ImageView
             android:id="@+id/sdsImageView"
@@ -41,29 +41,45 @@
             app:layout_constraintStart_toEndOf="@+id/sdsImageView" android:layout_marginStart="8dp"
             app:layout_constraintHorizontal_bias="0.037"/>
 
-    <ImageView
-            android:layout_width="152dp"
-            android:layout_height="179dp" app:srcCompat="@drawable/profile"
-            android:id="@+id/profileImageView" app:layout_constraintEnd_toEndOf="parent"
-            android:clickable="true"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="104dp"
-            app:layout_constraintHorizontal_bias="0.031" android:contentDescription="@string/imgProfile"/>
-    <ImageView
-            android:layout_width="154dp"
-            android:layout_height="181dp" app:srcCompat="@drawable/checkup" android:id="@+id/checkupImageView"
-            android:clickable="true"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp"
-            android:layout_marginTop="104dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/profileImageView" android:layout_marginStart="8dp"
-            app:layout_constraintHorizontal_bias="1.0" android:contentDescription="TODO"/>
 
-    <ImageView
-            android:layout_width="154dp"
-            android:layout_height="181dp" app:srcCompat="@drawable/checkup" android:id="@+id/notificationImageView"
-            android:clickable="true"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="240dp"
-            android:contentDescription="TODO" android:layout_marginTop="88dp"
-            app:layout_constraintTop_toBottomOf="@+id/profileImageView"/>
+    <TextView
+            android:id="@+id/notification_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/notify_Schedule_Text"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/header2TextView" app:layout_constraintVertical_bias="0.069"/>
+
+    <TimePicker
+            android:id="@+id/timePickerStart"
+            android:layout_width="306dp"
+            android:layout_height="384dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/notification_textView"
+            app:layout_constraintHorizontal_bias="0.474"
+            app:layout_constraintVertical_bias="0.469" android:layout_marginBottom="68dp"/>
+    <Switch
+            android:text="Notification"
+            android:layout_width="138dp"
+            android:layout_height="31dp"
+            android:id="@+id/switchNotification" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/timePickerStart" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintVertical_bias="0.603"
+            android:textOff="No"
+            android:textOn="Yes"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
