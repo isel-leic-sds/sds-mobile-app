@@ -1,0 +1,24 @@
+{
+  "listOfQuestions": [
+    {
+      "type": "Binary",
+      "question": "Teve Dores?",
+      "possibleAnswers": {
+        "option1": "SIM",
+        "option2": "NÃO"
+      }
+    },
+    {
+      "type": "SeekBar",
+      "question": "Intensidade da Dor?",
+      "possibleAnswers": {
+        "option1": "5"
+      }
+    },
+    {
+      "type": "Schedule",
+      "question": "Horas da dor?",
+      "possibleAnswers": {}
+    }
+  ]
+}

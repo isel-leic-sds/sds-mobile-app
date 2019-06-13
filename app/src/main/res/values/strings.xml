@@ -1,14 +1,30 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="login">Login</string>
-    <string name="password" >Password</string>
+    <string name="app_name">SDS</string>
+    <string name="skip" translatable="false"></string>
+    <string name="login" translatable="false">Login</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password" translatable="false">Password</string>
+
+
     <string name="userName">User Name</string>
     <string name="userID">User ID</string>
     <string name="name">Name</string>
     <string name="dailyBtn">Daily</string>
     <string name="historyBtn">History</string>
     <string name="profileBtn">Profile</string>
-    <string name="button">nextBtn</string>
+    <string name="button" translatable="false">nextBtn</string>
     <string name="sos_contact">SOS Contact</string>
     <string name="phone_number">Phone Number:</string>
+    <string name="sds" translatable="false">Sistema Digital de Saúde</string>
+    <string name="sdss" translatable="false">SDS</string>
+    <string name="imgProfile" translatable="false">TODO</string>
+    <string name="next">next</string>
+
+    <string name="question">Question</string>
+    <string name="prev_question_button">Prev</string>
+    <string name="final_message">finished click next to submit your answer</string>
+    <string name="submit">Submit</string>
+    <string name="notify_Schedule_Text">what the time do you pertend receive a notify?</string>
+    <string name="header_Notification" translatable="false">Quiz</string>
+    <string name="notification_message">Don\'t Forget to do Quiz</string>
 </resources>

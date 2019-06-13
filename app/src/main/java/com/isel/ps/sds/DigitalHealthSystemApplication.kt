@@ -8,7 +8,8 @@ class DigitalHealthSystemApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
-//        DhsService.tryLogin(this)
+//        DhsService.init(this)
+        VolleyService.init(this)
     }
 
     val repository by lazy { DhsRepository() }
