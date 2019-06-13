@@ -1,33 +1,28 @@
-package com.example.myapplication
+package com.isel.ps.sds.view.login
 
 import android.app.Application
-import android.util.Log
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.isel.ps.sds.repository
+import com.isel.ps.sds.requestQueue
 import com.isel.ps.sds.view.BaseViewModel
+import com.isel.ps.sds.view.login.LoginFactory.Login
 
-
-private val LoginVM = "LoginVM"
 class LoginViewModel(private val app : Application) : BaseViewModel(app) {
-    private var login: LiveData<Login>? = null
-    //private var loginRepo: LoginRepository
+    private var loginState = MutableLiveData<Boolean>()
+    private var errorMessage = MutableLiveData<String>()
 
-
-    fun init(userName: String, password: String, userId: String) {
-        if (this.login != null ) {
-            Log.i(LoginVM, "Init ViewModel")
-            return
+    fun tryLogin(login: Login) = app.repository.tryLogin(
+        app.requestQueue,
+        login,
+        { loginState.value = true },
+        {
+            loginState.value = false
+            errorMessage.value = it
         }
-        Login(userName,userId,password)
-       // try {
-            this.login =  null
-            //LoginRepository.tryLogin(userName,userId)
-       // }
-    }
+    )
 
-
-    fun getLogin(): LiveData<Login>? {
-        return this.login
-    }
+    fun getLoginState(): LiveData<Boolean> = loginState
+    fun getErrorMessage(): LiveData<String> = errorMessage
 }
 
