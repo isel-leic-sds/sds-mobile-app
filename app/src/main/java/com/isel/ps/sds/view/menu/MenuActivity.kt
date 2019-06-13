@@ -1,9 +1,9 @@
 package com.isel.ps.sds.view.menu
 
-import android.os.Bundle
 import android.content.Intent
-import com.example.myapplication.LoginViewModel
+import android.os.Bundle
 import com.isel.ps.sds.view.BaseActivity
+import com.isel.ps.sds.view.login.LoginViewModel
 import com.isel.ps.sds.view.notification.NotificationActivity
 import com.isel.ps.sds.view.profile.ProfileActivity
 import com.isel.ps.sds.view.quiz.QuizActivity

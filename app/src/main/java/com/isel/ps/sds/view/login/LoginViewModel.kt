@@ -8,7 +8,6 @@ import com.isel.ps.sds.requestQueue
 import com.isel.ps.sds.view.BaseViewModel
 import com.isel.ps.sds.view.login.LoginFactory.Login
 
-private val LoginVM = "LoginVM"
 class LoginViewModel(private val app : Application) : BaseViewModel(app) {
     private var loginState = MutableLiveData<Boolean>()
     private var errorMessage = MutableLiveData<String>()
