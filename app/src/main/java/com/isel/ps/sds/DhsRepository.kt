@@ -13,9 +13,9 @@ import java.sql.Date
 class DhsRepository {
 
     private val baseUrl = "https://sds-web-app.herokuapp.com"
-    private val loginUrl = "$baseUrl/sds/api/v1/login"
+    private val loginUrl = "$baseUrl/sds/api/v1/patient/login"
 
-    private val userName: String = "name"
+    private val sdsID: String = "sdsID"
     private val password: String = "password"
 
     fun loadPersonData(context: Context, onSuccess: (Person) -> Unit, onError: (String?) -> Unit) {
@@ -25,12 +25,12 @@ class DhsRepository {
             val obj = JSONObject(inputString)
             val sosContact = obj.getJSONObject("sosContact")
             val person = Person(
-                obj.getString(userName),
+                obj.getString("name"),
                 Date.valueOf(obj.getString("dateOfBirth")),
                 obj.getInt("nif"),
                 obj.getInt("phoneNumber"),
                 SosContact(
-                    sosContact.getString(userName),
+                    sosContact.getString("name"),
                     sosContact.getInt("phoneNumber")
                 )
             )
@@ -42,7 +42,7 @@ class DhsRepository {
 
     fun tryLogin(queue: RequestQueue, login: Login, onSuccess: (String) -> Unit, onError: (String) -> Unit) {
         val body = JSONObject()
-        body.put(userName, login.userName)
+        body.put(sdsID, login.sdsID)
         body.put(password, login.password)
 
         val request = object : JsonObjectRequest(
