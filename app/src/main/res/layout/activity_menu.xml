@@ -42,8 +42,8 @@
             app:layout_constraintHorizontal_bias="0.037"/>
 
     <ImageView
-            android:layout_width="152dp"
-            android:layout_height="179dp" app:srcCompat="@drawable/profile"
+            android:layout_width="154dp"
+            android:layout_height="181dp" app:srcCompat="@drawable/profile"
             android:id="@+id/profileImageView" app:layout_constraintEnd_toEndOf="parent"
             android:clickable="true"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
@@ -61,7 +61,7 @@
 
     <ImageView
             android:layout_width="154dp"
-            android:layout_height="181dp" app:srcCompat="@drawable/checkup" android:id="@+id/notificationImageView"
+            android:layout_height="181dp" app:srcCompat="@drawable/notification" android:id="@+id/notificationImageView"
             android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="240dp"
             android:contentDescription="TODO" android:layout_marginTop="88dp"

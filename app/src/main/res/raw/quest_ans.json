@@ -2,7 +2,7 @@
   "listOfQuestions": [
     {
       "type": "Binary",
-      "question": "Teve Dores?",
+      "question": "Presença da Dor?",
       "possibleAnswers": {
         "option1": "SIM",
         "option2": "NÃO"
@@ -17,8 +17,50 @@
     },
     {
       "type": "Schedule",
-      "question": "Horas da dor?",
+      "question": "Horas de inicio da dor(24h)?",
       "possibleAnswers": {}
+    },
+    {
+      "type": "Schedule",
+      "question": "Horas de fim da dor(24h)?",
+      "possibleAnswers": {}
+    },
+    {
+      "type": "Binary",
+      "question": "Tomou Medicação de Resgaste?",
+      "possibleAnswers": {
+        "option1": "SIM",
+        "option2": "NÃO"
+      }
+    },
+    {
+      "type": "SeekBar",
+      "question": "Como estava a dor quando tomou a medicação?",
+      "possibleAnswers": {
+        "option1": "3"
+      }
+    },
+    {
+      "type": "SeekBar",
+      "question": "Como estava a dor após 1 hora?",
+      "possibleAnswers": {
+        "option1": "3"
+      }
+    },
+    {
+      "type": "SeekBar",
+      "question": "Como estava a dor após 2 horas?",
+      "possibleAnswers": {
+        "option1": "3"
+      }
+    },
+    {
+      "type": "Binary",
+      "question": "Houve vómitos ou efeitos colaterais indesejaveis?",
+      "possibleAnswers": {
+        "option1": "SIM",
+        "option2": "NÃO"
+      }
     }
   ]
 }
