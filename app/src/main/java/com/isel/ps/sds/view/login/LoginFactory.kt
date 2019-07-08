@@ -20,13 +20,25 @@ class LoginFactory {
     private val ALGORITHM_NONCE_SIZE: Int = 12
     private val ALGORITHM_TAG_SIZE: Int = 128
     private val ALGORITHM_KEY_SIZE: Int = 128
-    private val PBKDF2_NAME: String = "PBKDF2WithHmacSHA256"
+    private val PBKDF2_NAME: String = "PBKDF2withHmacSHA1And8BIT"
     private val PBKDF2_SALT_SIZE: Int = 16
     private val PBKDF2_ITERATIONS = 32767
 
     private val CRYPTO_KEY = "SDS_ISEL_P3_G21_1819v"
 
     fun getLogin(userName: String, pw: String) = Login(userName, encrypt(pw))
+
+//    private fun encrypt(pw: String): String {
+//        val plaintext: ByteArray = pw.toByteArray()
+//        val keygen = KeyGenerator.getInstance("AES")
+//        keygen.init(256)
+//        val key: SecretKey = keygen.generateKey()
+//        val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
+//        cipher.init(Cipher.ENCRYPT_MODE, key)
+//        val ciphertext: ByteArray = cipher.doFinal(plaintext)
+//        val iv: ByteArray = cipher.iv
+//        return ""
+//    }
 
     private fun encrypt(plaintext: String): String {
         fun encryptBuffer(text: ByteArray, key: ByteArray): ByteArray {
