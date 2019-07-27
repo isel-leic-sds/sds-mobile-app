@@ -1,19 +1,13 @@
 package com.isel.ps.sds.view.login
 
-import android.animation.Animator
 import android.content.Intent
 import android.os.Bundle
-import android.os.CountDownTimer
-import android.view.View
-import android.view.View.VISIBLE
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.isel.ps.sds.R
 import com.isel.ps.sds.view.BaseActivity
 import com.isel.ps.sds.view.menu.MenuActivity
 import kotlinx.android.synthetic.main.activity_login.*
-
 
 class LoginActivity : BaseActivity<LoginViewModel>() {
     private val loginFactory: LoginFactory = LoginFactory()
@@ -22,45 +16,11 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
     override fun layoutToInflate(): Int = R.layout.activity_login
 
     override fun doOnCreate(savedInstanceState: Bundle?) {
-
-        object : CountDownTimer(5000, 1000) {
-            override fun onFinish() {
-                sdsTextView.visibility = View.GONE
-                loadingProgressBar.visibility = View.GONE
-                rootView.setBackgroundColor(ContextCompat.getColor(this@LoginActivity, R.color.colorSplashText))
-                sdsImageView.setImageResource(R.drawable.sds)
-                startAnimation()
-            }
-
-            override fun onTick(p0: Long) {}
-        }.start()
-    }
-
-    private fun startAnimation() {
-        sdsImageView.animate().apply {
-            x(50f)
-            y(100f)
-            duration = 1000
-        }.setListener(object : Animator.AnimatorListener {
-            override fun onAnimationRepeat(p0: Animator?) {
-
-            }
-
-            override fun onAnimationEnd(p0: Animator?) {
-                afterAnimationView.visibility = VISIBLE
-            }
-
-            override fun onAnimationCancel(p0: Animator?) {
-
-            }
-
-            override fun onAnimationStart(p0: Animator?) {
-
-            }
-        })
+        Animator(this).start()
 
         viewModel.getLoginState().observe(this, Observer<Boolean> {
             if (it) {
+                Toast.makeText(this, "Login successful!", Toast.LENGTH_LONG).show()
                 onSuccess()
             } else {
                 loginButton.isEnabled = true
@@ -81,8 +41,14 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
     }
 
     private fun onSuccess() {
-        Toast.makeText(this, "Login successful!", Toast.LENGTH_LONG).show()
         startActivity(Intent(this, MenuActivity::class.java))
+        finish()
+    }
+
+    fun isLoggedIn() {
+        if (viewModel.isLoggedIn()) {
+            onSuccess()
+        }
     }
 }
 

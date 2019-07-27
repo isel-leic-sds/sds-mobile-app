@@ -7,7 +7,7 @@ class Person(
     val name: String,
     val dateBirth: Date,
     val nif: Int,
-    val phoneNumber: Int,
+    //val phoneNumber: Int,
     val SosContact: SosContact
 )
 

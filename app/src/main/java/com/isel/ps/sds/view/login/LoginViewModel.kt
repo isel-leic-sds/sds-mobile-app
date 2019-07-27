@@ -15,12 +15,17 @@ class LoginViewModel(private val app : Application) : BaseViewModel(app) {
     fun tryLogin(login: Login) = app.repository.tryLogin(
         app.requestQueue,
         login,
-        { loginState.value = true },
+        {
+            loginState.value = true
+            app.repository.setLoginParameters(login.sdsID, login.password)
+        },
         {
             loginState.value = false
             errorMessage.value = it
         }
     )
+
+    fun isLoggedIn(): Boolean = app.repository.isLoggedIn()
 
     fun getLoginState(): LiveData<Boolean> = loginState
     fun getErrorMessage(): LiveData<String> = errorMessage
