@@ -2,7 +2,9 @@ package com.isel.ps.sds.view.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.isel.ps.sds.R
 import com.isel.ps.sds.view.BaseActivity
@@ -16,7 +18,7 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
     override fun layoutToInflate(): Int = R.layout.activity_login
 
     override fun doOnCreate(savedInstanceState: Bundle?) {
-        Animator(this).start()
+        Animator { onFinish() }.start()
 
         viewModel.getLoginState().observe(this, Observer<Boolean> {
             if (it) {
@@ -45,10 +47,23 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
         finish()
     }
 
-    fun isLoggedIn() {
+    private fun isLoggedIn() {
         if (viewModel.isLoggedIn()) {
             onSuccess()
         }
     }
-}
 
+    private fun onFinish() {
+        sdsTextView.visibility = View.GONE
+        loadingProgressBar.visibility = View.GONE
+        rootView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorSplashText))
+        sdsImageView.setImageResource(R.drawable.sds)
+        sdsImageView.animate().apply {
+            x(50f)
+            y(100f)
+            duration = 1000
+        }.setListener(SdsAnimatorListener(this))
+
+        isLoggedIn()
+    }
+}
