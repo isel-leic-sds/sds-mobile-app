@@ -54,11 +54,10 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
     }
 
     private fun onFinish() {
-        sdsTextView.visibility = View.GONE
-        loadingProgressBar.visibility = View.GONE
-        rootView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorSplashText))
-        sdsImageView.setImageResource(R.drawable.sds)
-        sdsImageView.animate().apply {
+        login_title_desc.visibility = View.GONE
+        loading_progress_bar.visibility = View.GONE
+        login_sds_mini_logo.setImageResource(R.drawable.sds)
+        login_sds_mini_logo.animate().apply {
             x(50f)
             y(100f)
             duration = 1000

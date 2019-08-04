@@ -1,28 +1,16 @@
-package com.isel.ps.sds.view.quiz.fragments
-
+package com.isel.ps.sds.view.quiz.fragment
 
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.isel.ps.sds.R
 import com.isel.ps.sds.view.quiz.data.Question
 import kotlinx.android.synthetic.main.fragment_time_ans.*
-import kotlinx.android.synthetic.main.fragment_time_ans.question
-
-
-
-
 
 class TimeAnsFragment(var quest: Question) : Fragment() {
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +22,7 @@ class TimeAnsFragment(var quest: Question) : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        question.text=quest.question
+        frag_question.text=quest.question
         if(!quest.userAnswer.finalAnswer.equals("")){
             var time = quest.userAnswer.finalAnswer.split(":")
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

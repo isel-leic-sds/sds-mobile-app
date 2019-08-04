@@ -9,7 +9,7 @@
     </style>
 
     <style name="ProgressBarStyles">
-        <item name="colorAccent">@color/colorProgressBar</item>
+        <item name="colorAccent">@color/light_color</item>
     </style>
 
 </resources>

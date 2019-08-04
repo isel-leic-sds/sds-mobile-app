@@ -38,25 +38,26 @@
             android:textSize="15sp"
             app:layout_constraintTop_toBottomOf="@+id/menu-title"
             app:layout_constraintBottom_toBottomOf="@+id/menu-sds-mini-logo"
-            app:layout_constraintStart_toEndOf="@+id/menu-sds-mini-logo" android:layout_marginStart="8dp"/>
+            app:layout_constraintStart_toEndOf="@+id/menu-sds-mini-logo" android:layout_marginStart="8dp"
+    />
 
     <ImageView
             android:layout_width="154dp"
             android:layout_height="181dp" app:srcCompat="@drawable/profile"
             android:id="@+id/profile_img"
             android:clickable="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/daily_img"
-            app:layout_constraintBottom_toTopOf="@+id/alert_settings_img" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" android:focusable="true"
-            android:contentDescription="@string/profile_desc"/>
+            android:contentDescription="@string/profile_desc"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/daily_img" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:focusable="true"/>
     <ImageView
             android:layout_width="154dp"
             android:layout_height="181dp" app:srcCompat="@drawable/checkup" android:id="@+id/daily_img"
             android:clickable="true"
             android:contentDescription="@string/daily_desc"
             app:layout_constraintStart_toEndOf="@+id/profile_img" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/alert_settings_img"
             app:layout_constraintTop_toTopOf="@+id/profile_img"
             app:layout_constraintBottom_toBottomOf="@+id/profile_img" android:focusable="true"/>
 
@@ -65,8 +66,8 @@
             android:layout_height="181dp" app:srcCompat="@drawable/notification" android:id="@+id/alert_settings_img"
             android:clickable="true"
             android:contentDescription="@string/alert_settings_desc"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_img"
-            app:layout_constraintStart_toStartOf="@+id/profile_img"
-            app:layout_constraintEnd_toEndOf="@+id/profile_img" android:focusable="true"/>
+            app:layout_constraintStart_toEndOf="@+id/daily_img"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/daily_img"
+            app:layout_constraintBottom_toBottomOf="@+id/daily_img" android:focusable="true"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

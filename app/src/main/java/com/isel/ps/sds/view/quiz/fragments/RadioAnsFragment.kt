@@ -1,23 +1,15 @@
 package com.isel.ps.sds.view.quiz.fragments
 
-
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
 import com.isel.ps.sds.R
 import com.isel.ps.sds.view.quiz.data.Question
 import kotlinx.android.synthetic.main.fragment_radio_ans.*
 
 class RadioAnsFragment(var quest: Question) : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,10 +19,9 @@ class RadioAnsFragment(var quest: Question) : Fragment() {
         return inflater.inflate(R.layout.fragment_radio_ans, container, false)
     }
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        question.text = quest.question
+        frag_question.text = quest.question
         optionButton1.text = quest.answerOptions.option1
         optionButton2.text = quest.answerOptions.option2
         var userAnswer = quest.userAnswer.finalAnswer
@@ -39,8 +30,6 @@ class RadioAnsFragment(var quest: Question) : Fragment() {
                 optionButton1.isChecked = true
             else optionButton2.isChecked = true
         }
-
-
     }
 
     override fun onPause() {

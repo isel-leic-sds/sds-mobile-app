@@ -7,4 +7,9 @@
     <color name="colorSplashText">#F0F0F0</color>
     <color name="colorProgressBar">#FFCE511C</color>
     <color name="colorTextView">#83898E</color>
+
+    <!--Theme Colors-->
+    <color name="light_color">#04B8D4</color>
+    <color name="dark_color">#005461</color>
+    <color name="black">#00282E</color>
 </resources>

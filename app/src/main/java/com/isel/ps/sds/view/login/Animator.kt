@@ -15,19 +15,13 @@ class Animator(private val animatorOnFinish: () -> Unit) : CountDownTimer(5000, 
 }
 
 class SdsAnimatorListener(private val activity: LoginActivity) : android.animation.Animator.AnimatorListener {
-    override fun onAnimationRepeat(p0: android.animation.Animator?) {
-
-    }
+    override fun onAnimationRepeat(p0: android.animation.Animator?) {}
 
     override fun onAnimationEnd(p0: android.animation.Animator?) {
-        activity.afterAnimationView.visibility = View.VISIBLE
+        activity.after_animation_view.visibility = View.VISIBLE
     }
 
-    override fun onAnimationCancel(p0: android.animation.Animator?) {
+    override fun onAnimationCancel(p0: android.animation.Animator?) {}
 
-    }
-
-    override fun onAnimationStart(p0: android.animation.Animator?) {
-
-    }
+    override fun onAnimationStart(p0: android.animation.Animator?) {}
 }

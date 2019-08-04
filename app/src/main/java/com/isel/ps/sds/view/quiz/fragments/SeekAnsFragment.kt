@@ -1,24 +1,15 @@
 package com.isel.ps.sds.view.quiz.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SeekBar
+import androidx.fragment.app.Fragment
 import com.isel.ps.sds.R
 import com.isel.ps.sds.view.quiz.data.Question
 import kotlinx.android.synthetic.main.fragment_seek_ans.*
 
-
 class SeekAnsFragment(var quest: Question) : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +22,7 @@ class SeekAnsFragment(var quest: Question) : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        question.text = quest.question
+        frag_question.text = quest.question
         seekBar_widget.max = quest.answerOptions.option1.toInt()-1
         if(!quest.userAnswer.finalAnswer.equals("")) {
             var progress = quest.userAnswer.finalAnswer
@@ -39,9 +30,6 @@ class SeekAnsFragment(var quest: Question) : Fragment() {
             progress_textView.text = progress
         }
     }
-
-
-
 
     override fun onPause() {
         super.onPause()

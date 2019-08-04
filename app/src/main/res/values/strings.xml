@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">SDS</string>
+
+
     <string name="skip" translatable="false"></string>
     <string name="login" translatable="false">Login</string>
     <string name="email" translatable="false">Email</string>
     <string name="password" translatable="false">Password</string>
-
 
     <string name="userName">User Name</string>
     <string name="userID">User ID</string>
@@ -15,9 +15,6 @@
     <string name="button" translatable="false">nextBtn</string>
     <string name="sos_contact">SOS Contact</string>
     <string name="phone_number">Phone Number:</string>
-    <string name="sds" translatable="false">Sistema Digital de Saúde</string>
-    <string name="sdss" translatable="false">SDS</string>
-    <string name="imgProfile" translatable="false">TODO</string>
     <string name="next">next</string>
 
     <string name="question">Question</string>
@@ -27,4 +24,19 @@
     <string name="notify_Schedule_Text">what the time do you pertend receive a notify?</string>
     <string name="header_Notification" translatable="false">Quiz</string>
     <string name="notification_message">Don\'t Forget to do Quiz</string>
+
+    <!--General-->
+    <string name="app_name" translatable="false">SDS</string>
+    <string name="sds_title_short">SDS</string>
+    <string name="sds_title_long">Sistema Digital de Saúde</string>
+    <string name="sds_title_long_caps">SISTEMA DIGITAL DE SAÚDE</string>
+
+    <!--Menu-->
+    <string name="profile_desc" translatable="false">Profile</string>
+    <string name="daily_desc" translatable="false">Daily</string>
+    <string name="alert_settings_desc" translatable="false">Alert Settings</string>
+
+    <!--Profil-->
+    <!--Daily-->
+    <!--Alert-->
 </resources>

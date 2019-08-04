@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootView"
+    android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
@@ -9,26 +9,26 @@
     >
 
     <ImageView
-        android:id="@+id/sdsImageView"
+        android:id="@+id/login-sds-mini-logo"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_centerInParent="true"
         android:contentDescription="@null"
         android:src="@drawable/sds" />
 
-    <TextView
-        android:id="@+id/sdsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/sdsImageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:text="@string/sds"
-        android:textColor="@color/colorSplashText"
-        android:textSize="16sp" />
+	<TextView
+			android:id="@+id/login-title-desc"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/login-sds-mini-logo"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="5dp"
+			android:text="@string/sds_title_long_caps"
+			android:textColor="@color/light_color"
+			android:textSize="16sp"/>
 
     <ProgressBar
-        android:id="@+id/loadingProgressBar"
+        android:id="@+id/loading_progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="12dp"
@@ -40,7 +40,7 @@
         android:theme="@style/ProgressBarStyles" />
 
     <RelativeLayout
-        android:id="@+id/afterAnimationView"
+        android:id="@+id/after_animation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginEnd="20dp"
@@ -50,21 +50,21 @@
         android:visibility="gone">
 
         <TextView
-                android:id="@+id/header1TextView"
+                android:id="@+id/menu-title2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sdss"
+                android:text="@string/sds_title_short"
                 android:textColor="@color/colorBackground"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
         <TextView
-                android:id="@+id/header2TextView"
+                android:id="@+id/login-title-desc2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/header1TextView"
+                android:layout_below="@+id/menu-title2"
                 android:layout_marginTop="10dp"
-                android:text="@string/sds"
+                android:text="@string/sds_title_long"
                 android:textColor="@color/colorAccent"
                 android:textSize="15sp" />
 
@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/loginButton"
-            android:layout_below="@+id/header2TextView"
+            android:layout_below="@+id/login-title-desc2"
             android:gravity="center"
             android:orientation="vertical">
 
