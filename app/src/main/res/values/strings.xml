@@ -35,8 +35,9 @@
     <string name="profile_desc" translatable="false">Profile</string>
     <string name="daily_desc" translatable="false">Daily</string>
     <string name="alert_settings_desc" translatable="false">Alert Settings</string>
+	<string name="submitQuiz">The quiz has been successfully submitted!</string>
 
-    <!--Profil-->
+	<!--Profil-->
     <!--Daily-->
     <!--Alert-->
 </resources>

@@ -20,4 +20,5 @@
     <string name="sds_title_short">SDS (DHS)</string>
     <string name="sds_title_long">Digital Health System</string>
     <string name="sds_title_long_caps">DIGITAL HEALTH SYSTEM</string>
+	<string name="submitQuiz">O questionário foi submetido com sucesso!</string>
 </resources>

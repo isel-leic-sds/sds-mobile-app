@@ -1,4 +1,4 @@
-package com.isel.ps.sds.view.quiz.fragment
+package com.isel.ps.sds.view.quiz.fragments
 
 import android.os.Build
 import android.os.Bundle

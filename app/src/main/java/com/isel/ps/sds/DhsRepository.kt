@@ -6,6 +6,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.isel.ps.sds.view.login.LoginFactory.Login
 import com.isel.ps.sds.view.profile.Person
 import com.isel.ps.sds.view.profile.SosContact
+import com.isel.ps.sds.view.quiz.data.Quiz
 import org.json.JSONObject
 import java.io.InputStream
 import java.sql.Date
@@ -15,11 +16,13 @@ class DhsRepository(val context: DigitalHealthSystemApplication) {
     private val baseUrl = "https://sds-web-app.herokuapp.com/sds/api/v1"
     private val patientUrl = "$baseUrl/patient"
     private val loginUrl = "$patientUrl/login"
+    private val quizUrl = "$baseUrl/quiz"
 
     private val SHARED_PREFERENCES_LOGIN_KEY = "LOGIN"
     private val defaultValue = ""
     private val sdsId_ID: String = "sdsID"
     private val password_ID: String = "password"
+    private val quiz_ID = "quiz"
 
     private val sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_LOGIN_KEY, Context.MODE_PRIVATE)
 
@@ -104,6 +107,20 @@ class DhsRepository(val context: DigitalHealthSystemApplication) {
             {
                 it.printStackTrace(); onError(it.message ?: "Error")
             }
+        ) {}
+        queue.add(request)
+    }
+
+    fun submitQuiz(queue: RequestQueue, quiz: Quiz, onSuccess: () -> Unit, onError: (Exception) -> Unit) {
+        val body = JSONObject()
+        body.put(quiz_ID, quiz.questions)
+
+        val request = object : JsonObjectRequest(
+            Method.POST,
+            quizUrl,
+            body,
+            { onSuccess() },
+            { err -> onError(err) }
         ) {}
         queue.add(request)
     }

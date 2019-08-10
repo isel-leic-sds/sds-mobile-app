@@ -2,45 +2,33 @@ package com.isel.ps.sds.view.quiz
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import com.isel.ps.sds.repository
+import com.isel.ps.sds.requestQueue
 import com.isel.ps.sds.view.BaseViewModel
 import com.isel.ps.sds.view.quiz.data.Quiz
 
 class QuizViewModel(private val app : Application) : BaseViewModel(app) {
-    private var quiz: LiveData<Quiz>? = null
-    private var questIdx: MutableLiveData<Int> = MutableLiveData()
-
-    fun init() {
-        if (this.quiz != null ) {
-
-            return
-        }
-        this.questIdx.value=0
-        this.quiz = QuizRepository.loadQuestionData(app.applicationContext)
-
-
-    }
-
-    fun getQuiz(): LiveData<Quiz>? {
-        return this.quiz
-    }
-
+    val quiz: LiveData<Quiz> = QuizRepository.loadQuestionData(app.applicationContext)
+    private var questIdx: Int = 0
 
     fun getCurrentIdx():Int{
-        return questIdx.value!!
+        return questIdx
     }
 
     fun nextQuestionNumber():Int {
-        var idx = getCurrentIdx()+1
-        questIdx.value=idx
-        return questIdx.value!!
-
+        questIdx = getCurrentIdx() + 1
+        return questIdx
     }
 
     fun prevQuestionNumber():Int {
-        var idx = getCurrentIdx()-1
-        if (idx < 0) idx=0
-        questIdx.value=idx
-        return questIdx.value!!
+        if (getCurrentIdx() - 1 < 0) 0 else getCurrentIdx() - 1
+        questIdx = if (getCurrentIdx() - 1 < 0) 0 else getCurrentIdx() - 1
+        return questIdx
     }
+
+    fun submitQuiz() = app.repository.submitQuiz(
+        app.requestQueue,
+        quiz.value!!,
+        { isLoading.value = true },
+        { err -> error(err) })
 }

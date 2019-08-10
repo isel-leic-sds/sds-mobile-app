@@ -5,7 +5,11 @@ class Question (
     val question: String = "",
     val answerOptions: AnswerOptions = AnswerOptions(),
     val userAnswer : UserAnswer = UserAnswer()
-)
+) {
+    override fun toString(): String {
+        return "Question(id='$id', question='$question', answerOptions=$answerOptions, userAnswer=$userAnswer)"
+    }
+}
 
 
 
