@@ -37,7 +37,7 @@ object QuizRepository {
             )
             questList.add(question)
         }
-        questList.add(Question("END"))
+        questList.add(Question("Final"))
         val quiz= Quiz(questList)
         data.value = quiz
         return data

@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.isel.ps.sds.FragmentFactory
+import com.isel.ps.sds.FragmentAnsFactory
 import com.isel.ps.sds.R
 import com.isel.ps.sds.view.BaseActivity
 import com.isel.ps.sds.view.menu.MenuActivity
@@ -52,14 +52,14 @@ class QuizActivity : BaseActivity<QuizViewModel>(){
     private fun getFragmentByQuiz(quiz: Quiz): Fragment {
         val questIdx = viewModel.getCurrentIdx()
         val quest = quiz.questions[questIdx]
-        return FragmentFactory().getFragment(quest)
+        return FragmentAnsFactory().getFragment(quest)
     }
 
     // If next = true get the next question, on false get the previous question
     private fun getCurrentFragment(next: Boolean = true): Fragment {
         val questIdx: Int = if (next) viewModel.nextQuestionNumber() else viewModel.prevQuestionNumber()
         val quest = viewModel.quiz.value!!.questions[questIdx]
-        return FragmentFactory().getFragment(quest)
+        return FragmentAnsFactory().getFragment(quest)
     }
 
     private fun renderMenuActivity() {
