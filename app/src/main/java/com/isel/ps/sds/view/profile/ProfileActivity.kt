@@ -12,14 +12,12 @@ class ProfileActivity : BaseActivity<ProfileViewModel>() {
     override fun layoutToInflate(): Int = R.layout.activity_profile
 
     override fun doOnCreate(savedInstanceState: Bundle?) {
-        viewModel.getPatientData(this)
-        viewModel.providePerson().observe(this, Observer<Person> {
-            update(it)
+        viewModel.person.observe(this, Observer<Person> { p ->
+            update(p)
         })
     }
 
     private fun update(person: Person) {
-//        Picasso.get().load(person.imageUrl).into(personPic)
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             personPic.setImageDrawable(this.resources.getDrawable(R.drawable.profile, this.theme))
         } else {
@@ -27,7 +25,6 @@ class ProfileActivity : BaseActivity<ProfileViewModel>() {
         }
         personName.text = person.name
         personDateOfBirth.text = person.dateBirth.toString()
-//        personPhoneNumber.text = person.phoneNumber.toString()
         personNif.text = person.nif.toString()
         personSosContactName.text = person.SosContact.name
         personSosContactPhoneNumber.text = person.SosContact.phoneNumber.toString()

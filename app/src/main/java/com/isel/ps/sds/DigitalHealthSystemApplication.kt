@@ -2,6 +2,8 @@ package com.isel.ps.sds
 
 import android.app.Application
 import androidx.multidex.MultiDexApplication
+import androidx.room.Room
+import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
 
 class DigitalHealthSystemApplication : MultiDexApplication() {
@@ -11,9 +13,13 @@ class DigitalHealthSystemApplication : MultiDexApplication() {
         VolleyService.init(this)
     }
 
-    val repository by lazy { DhsRepository(this) }
+    private val database by lazy {
+        Room.databaseBuilder(this, DhsDatabase::class.java, "dhs_db").build()
+    }
 
-    val requestQueue by lazy { Volley.newRequestQueue(this) }
+    val repository by lazy { DhsRepository(this, database.personDao(), database.quizDao()) }
+
+    val requestQueue: RequestQueue by lazy { Volley.newRequestQueue(this) }
 }
 
 val Application.repository
