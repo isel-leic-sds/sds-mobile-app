@@ -37,6 +37,7 @@ class LoginViewModel(private val app : Application) : BaseViewModel(app) {
         app.repository.getPatientData(
             app.requestQueue,
             { newPerson ->
+                app.repository.setPatientParameters(newPerson)
                 app.repository.submitPerson(newPerson)
                 loadQuizData()
             },

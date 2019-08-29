@@ -22,7 +22,8 @@ class DhsRepository(
     private val baseUrl = "https://sds-web-app.herokuapp.com/sds/api/v1"
     private val patientUrl = "$baseUrl/patient"
     private val loginUrl = "$patientUrl/login"
-    private val quizUrl = "$baseUrl/quiz"
+    private val dailyQuizUrl = "$patientUrl/ans"
+    private val submitQuizUrl = "$patientUrl/quiz"
 
     private val SHARED_PREFERENCES_LOGIN_KEY = "LOGIN"
     private val defaultValue = ""
@@ -98,6 +99,12 @@ class DhsRepository(
         queue.add(request)
     }
 
+    fun setPatientParameters(person: Person) {
+        val editor = sharedPreferences.edit()
+        editor.putString(quiz_ID, person.quiz)
+        editor.apply()
+    }
+
     fun submitDailyQuiz(
         queue: RequestQueue,
         quiz: Quiz,
@@ -106,10 +113,11 @@ class DhsRepository(
     ) {
         val body = JSONObject()
         body.put(quiz_ID, quiz.questions)
+        val sdsId = sharedPreferences.getString(sdsId_ID, defaultValue)
 
         val request = object : JsonObjectRequest(
             Method.POST,
-            quizUrl,
+            "$dailyQuizUrl/$sdsId",
             body,
             { onSuccess() },
             { err -> onError(err) }
@@ -118,10 +126,10 @@ class DhsRepository(
     }
 
     fun getPatientQuiz(queue: RequestQueue, onSuccess: (Quiz) -> Unit, onError: (String) -> Unit) {
-        val sdsId = sharedPreferences.getString(sdsId_ID, defaultValue)
+        val quizName = sharedPreferences.getString(quiz_ID, defaultValue)
         val request = object : JsonObjectRequest(
             Method.GET,
-            "$patientUrl/$sdsId",
+            "$submitQuizUrl/$quizName",
             null,
             { q -> onSuccess(parseJsonQuiz(q)) },
             {
@@ -131,7 +139,7 @@ class DhsRepository(
         queue.add(request)
     }
 
-    private fun parseJsonQuiz(quiz: JSONObject): Quiz {
+    fun parseJsonQuiz(quiz: JSONObject): Quiz {
         val questList: ArrayList<Question> = ArrayList()
         val listOfQuestions = quiz.getJSONArray("listOfQuestions")
         for (i: Int in 0 until listOfQuestions.length()) {
@@ -148,7 +156,7 @@ class DhsRepository(
             )
             questList.add(question)
         }
-        questList.add(Question("END"))
+        questList.add(Question("Final"))
         return Quiz(questList)
     }
 

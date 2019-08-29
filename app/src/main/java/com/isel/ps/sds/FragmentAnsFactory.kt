@@ -10,11 +10,12 @@ import com.isel.ps.sds.view.quiz.fragments.TimeAnsFragment
 class FragmentAnsFactory {
 
     fun  getFragment(quest: Question) : Fragment {
-        return when (AnsType.valueOf(quest.type)) {
-            AnsType.SEEK_BAR -> SeekAnsFragment(quest)
-            AnsType.BINARY -> RadioAnsFragment(quest)
-            AnsType.SCHEDULE -> TimeAnsFragment(quest)
-            AnsType.FINAL -> FinalAnsFragment()
+        return when (quest.type) {
+            AnsType.SEEK_BAR.value -> SeekAnsFragment(quest)
+            AnsType.BINARY.value -> RadioAnsFragment(quest)
+            AnsType.SCHEDULE.value -> TimeAnsFragment(quest)
+            AnsType.FINAL.value -> FinalAnsFragment()
+            else -> throw IllegalArgumentException("Question type does not match an AnsType.")
         }
     }
 
