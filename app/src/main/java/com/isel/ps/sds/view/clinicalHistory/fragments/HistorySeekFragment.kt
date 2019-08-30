@@ -16,11 +16,6 @@ import kotlinx.android.synthetic.main.fragment_history_seek.*
 
 class HistorySeekFragment(var clinicalHistory: ClinicalHistoryData) : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,7 +27,6 @@ class HistorySeekFragment(var clinicalHistory: ClinicalHistoryData) : Fragment()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val ch: ClinicalHistory // ClinicalHistoryRepository.loadClinicalHistoryData(this).value!!
 
 
         var lineChart = lineChart
@@ -41,29 +35,17 @@ class HistorySeekFragment(var clinicalHistory: ClinicalHistoryData) : Fragment()
 
         var yValues = ArrayList<Entry>(7)
 
-        yValues.add(Entry(1F,0F))
-        yValues.add(Entry(2F,0F))
-        yValues.add(Entry(3F,0F))
-        yValues.add(Entry(4F,5F))
-        yValues.add(Entry(5F,6F))
-        yValues.add(Entry(6F,3F))
-        yValues.add(Entry(7F,1F))
-        yValues.add(Entry(8F,0F))
-        yValues.add(Entry(9F,1F))
-        yValues.add(Entry(10F,0F))
-        yValues.add(Entry(11F,0F))
-        yValues.add(Entry(12F,6F))
-        yValues.add(Entry(13F,7F))
-        yValues.add(Entry(14F,3F))
-        yValues.add(Entry(15F,3F))
-        yValues.add(Entry(16F,4F))
-        yValues.add(Entry(17F,5F))
-        yValues.add(Entry(18F,2F))
-        yValues.add(Entry(19F,1F))
-        yValues.add(Entry(20F,2F))
+        var answers = clinicalHistory.answers
+
+        for (i: Int in 0..(answers.size - 1)) {
+            var userAnswer = answers[i].userAnswer
+            for (j: Int in 0..(userAnswer.size - 1)) {
+                yValues.add(Entry(userAnswer[j].toFloat(), answers[i].answer.toFloat()))
+            }
+        }
 
 
-        var set1 = LineDataSet(yValues,"Data Set 1")
+        var set1 = LineDataSet(yValues,clinicalHistory.question)
         set1.fillAlpha=150
         set1.lineWidth=3F
         var dataSets = ArrayList<LineDataSet>(10)
