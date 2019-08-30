@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:orientation="vertical"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent" android:id="@+id/menu">
 
@@ -61,12 +62,28 @@
             app:layout_constraintBottom_toBottomOf="@+id/profile_img" android:focusable="true"/>
 
     <ImageView
+            android:id="@+id/alert_settings_img"
             android:layout_width="154dp"
-            android:layout_height="181dp" app:srcCompat="@drawable/notification" android:id="@+id/alert_settings_img"
+            android:layout_height="181dp"
             android:clickable="true"
             android:contentDescription="@string/alert_settings_desc"
+            android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_img"
+            app:layout_constraintEnd_toEndOf="@+id/profile_img"
             app:layout_constraintStart_toStartOf="@+id/profile_img"
-            app:layout_constraintEnd_toEndOf="@+id/profile_img" android:focusable="true"/>
+            app:layout_constraintTop_toBottomOf="@+id/profile_img"
+            app:srcCompat="@drawable/notification" />
+
+    <ImageView
+            android:id="@+id/clinical_history_img"
+            android:layout_width="154dp"
+            android:layout_height="181dp"
+            android:clickable="true"
+            android:contentDescription="@string/historical_clinic"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/daily_img"
+            app:layout_constraintStart_toStartOf="@+id/daily_img"
+            app:layout_constraintTop_toBottomOf="@+id/daily_img"
+            app:srcCompat="@drawable/clinichistory" />
 </androidx.constraintlayout.widget.ConstraintLayout>

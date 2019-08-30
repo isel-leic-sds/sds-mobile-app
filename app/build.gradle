@@ -25,6 +25,10 @@ android {
     }
 }
 
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
 dependencies {
     def lifecycle_extensions_version = "2.0.0"
     def room_version = "2.2.0-beta01"
@@ -62,4 +66,8 @@ dependencies {
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-kotlin
     implementation group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.9.9'
 
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 }
+
+
