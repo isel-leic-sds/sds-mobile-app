@@ -15,6 +15,8 @@ class ProfileActivity : BaseActivity<ProfileViewModel>() {
         viewModel.person.observe(this, Observer<Person> { p ->
             update(p)
         })
+
+        viewModel.getPerson()
     }
 
     private fun update(person: Person) {

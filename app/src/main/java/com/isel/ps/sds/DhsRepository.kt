@@ -2,7 +2,6 @@ package com.isel.ps.sds
 
 import android.content.Context
 import android.os.AsyncTask
-import androidx.lifecycle.LiveData
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
 import com.isel.ps.sds.view.login.LoginFactory.Login
@@ -32,9 +31,6 @@ class DhsRepository(
     private val quiz_ID = "quiz"
 
     private val sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_LOGIN_KEY, Context.MODE_PRIVATE)
-
-    val person: LiveData<Person> = personDao.getPerson()
-    val quiz: LiveData<Quiz> = quizDao.getQuiz()
 
     fun isLoggedIn(): Boolean {
         val sdsId = sharedPreferences.getString(sdsId_ID, defaultValue)
@@ -72,7 +68,11 @@ class DhsRepository(
         queue.add(request)
     }
 
-    fun getPatientData(queue: RequestQueue, onSuccess: (Person) -> Unit, onError: (String) -> Unit) {
+    fun getPatientData(
+        queue: RequestQueue,
+        onSuccess: (Person) -> Unit,
+        onError: (Exception) -> Unit
+    ) {
         val sdsId = sharedPreferences.getString(sdsId_ID, defaultValue)
         val request = object : JsonObjectRequest(
             Method.GET,
@@ -92,14 +92,12 @@ class DhsRepository(
                     )
                 )
             },
-            {
-                it.printStackTrace(); onError(it.message ?: "Error")
-            }
+            { err -> onError(err) }
         ) {}
         queue.add(request)
     }
 
-    fun setPatientParameters(person: Person) {
+    private fun setPatientParameters(person: Person) {
         val editor = sharedPreferences.edit()
         editor.putString(quiz_ID, person.quiz)
         editor.apply()
@@ -125,16 +123,18 @@ class DhsRepository(
         queue.add(request)
     }
 
-    fun getPatientQuiz(queue: RequestQueue, onSuccess: (Quiz) -> Unit, onError: (String) -> Unit) {
+    fun getPatientQuiz(
+        queue: RequestQueue,
+        onSuccess: (Quiz) -> Unit,
+        onError: (Exception) -> Unit
+    ) {
         val quizName = sharedPreferences.getString(quiz_ID, defaultValue)
         val request = object : JsonObjectRequest(
             Method.GET,
             "$submitQuizUrl/$quizName",
             null,
             { q -> onSuccess(parseJsonQuiz(q)) },
-            {
-                it.printStackTrace(); onError(it.message ?: "Error")
-            }
+            { err -> onError(err) }
         ) {}
         queue.add(request)
     }
@@ -161,11 +161,50 @@ class DhsRepository(
     }
 
     fun submitPerson(person: Person) {
+        setPatientParameters(person)
         InsertPersonTask(personDao).execute(person)
+    }
+
+    fun getPerson(
+        provideNewPerson: (Person?) -> Unit,
+        submitNewPerson: (Person) -> Unit,
+        onError: (Exception) -> Unit
+    ) {
+        if (personDao.getPerson().value == null) {
+            getPatientData(
+                context.requestQueue,
+                { p ->
+                    provideNewPerson(p)
+                    submitNewPerson(p)
+                },
+                onError
+            )
+        } else {
+            provideNewPerson(personDao.getPerson().value)
+        }
     }
 
     fun submitQuiz(quiz: Quiz) {
         InsertQuizTask(quizDao).execute(quiz)
+    }
+
+    fun getQuiz(
+        provideNewQuiz: (Quiz?) -> Unit,
+        submitNewQuiz: (Quiz) -> Unit,
+        onError: (Exception) -> Unit
+    ) {
+        if (quizDao.getQuiz().value == null) {
+            getPatientQuiz(
+                context.requestQueue,
+                { q ->
+                    provideNewQuiz(q)
+                    submitNewQuiz(q)
+                },
+                onError
+            )
+        } else {
+            provideNewQuiz(quizDao.getQuiz().value)
+        }
     }
 }
 
