@@ -3,6 +3,7 @@ package com.isel.ps.sds.view.menu
 import android.content.Intent
 import android.os.Bundle
 import com.isel.ps.sds.view.BaseActivity
+import com.isel.ps.sds.view.clinicalHistory.ClinicalHistoryActivity
 import com.isel.ps.sds.view.login.LoginViewModel
 import com.isel.ps.sds.view.notification.NotificationActivity
 import com.isel.ps.sds.view.profile.ProfileActivity
@@ -29,5 +30,12 @@ class MenuActivity : BaseActivity<LoginViewModel>() {
             val notificationActivity = Intent(this, NotificationActivity::class.java)
             startActivity(notificationActivity)
         }
+
+        clinical_history_img.setOnClickListener {
+            val clinicalActivity = Intent(this, ClinicalHistoryActivity::class.java)
+            startActivity(clinicalActivity)
+        }
     }
+
+
 }

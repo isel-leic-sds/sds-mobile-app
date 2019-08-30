@@ -1,0 +1,83 @@
+{
+  "clinicalHistory": [
+    {
+      "type": "Binary",
+      "question": "Teve Dores?",
+      "answers": [
+        {
+          "answer": "SIM",
+          "userAnswer": [
+            20
+          ]
+        },
+        {
+          "answer": "NAO",
+          "userAnswer": [
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "type": "SeekBar",
+      "question": "Itensidade da dor?",
+      "answers": [
+        {
+          "answer": "0",
+          "userAnswer": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "answer": "1",
+          "userAnswer": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "answer": "3",
+          "userAnswer": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        {
+          "answer": "4",
+          "userAnswer": [
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "answer": "5",
+          "userAnswer": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        }
+      ]
+    }
+  ]
+}
