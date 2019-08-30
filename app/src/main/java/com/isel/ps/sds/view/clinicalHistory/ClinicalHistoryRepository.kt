@@ -50,6 +50,7 @@ object ClinicalHistoryRepository {
 
             chDataList.add(clinicalHistoryData)
         }
+        chDataList.add(ClinicalHistoryData("Final"))
         data.value=ClinicalHistory(chDataList)
         return data
     }

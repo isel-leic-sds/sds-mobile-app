@@ -7,6 +7,41 @@
                                                    tools:context=".view.clinicalHistory.fragments.HistoryBinaryFragment"
                                                    android:id="@+id/frameLayout4">
 
+    <ImageView
+            android:id="@+id/frag-sds-mini-logo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@null"
+            android:src="@drawable/sds"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+    <TextView
+            android:id="@+id/frag-title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sds_title_short"
+            android:textColor="@color/dark_color"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/frag-sds-mini-logo"
+            app:layout_constraintStart_toEndOf="@+id/frag-sds-mini-logo"
+            android:layout_marginStart="8dp"/>
+
+    <TextView
+            android:id="@+id/frag-title-desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/frag-title"
+            android:text="@string/sds_title_long"
+            android:textColor="@color/dark_color"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@+id/frag-title"
+            app:layout_constraintBottom_toBottomOf="@+id/frag-sds-mini-logo"
+            app:layout_constraintStart_toEndOf="@+id/frag-sds-mini-logo" android:layout_marginStart="8dp"/>
+
     <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/pieChart"
             android:layout_width="match_parent"
@@ -14,6 +49,6 @@
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/frag-title-desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

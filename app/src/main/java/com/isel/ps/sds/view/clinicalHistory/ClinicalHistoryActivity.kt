@@ -55,9 +55,4 @@ class ClinicalHistoryActivity : BaseActivity<ClinicalHistoryViewModel>() {
         return FragmentAnsFactory().getClinicalHistoryFragment(ch)
     }
 
-    private fun renderMenuActivity() {
-        val intent = Intent(this, MenuActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
 }

@@ -3,6 +3,7 @@ package com.isel.ps.sds
 import androidx.fragment.app.Fragment
 import com.isel.ps.sds.view.clinicalHistory.data.ClinicalHistoryData
 import com.isel.ps.sds.view.clinicalHistory.fragments.HistoryBinaryFragment
+import com.isel.ps.sds.view.clinicalHistory.fragments.HistoryFinalFragment
 import com.isel.ps.sds.view.clinicalHistory.fragments.HistorySeekFragment
 import com.isel.ps.sds.view.quiz.data.Question
 import com.isel.ps.sds.view.quiz.fragments.FinalAnsFragment
@@ -26,7 +27,7 @@ class FragmentAnsFactory {
         return when (chData.type) {
             AnsType.SEEK_BAR.value -> HistorySeekFragment(chData)
             AnsType.BINARY.value -> HistoryBinaryFragment(chData)
-            AnsType.FINAL.value -> FinalAnsFragment()
+            AnsType.FINAL.value -> HistoryFinalFragment()
             else -> throw IllegalArgumentException("Question type does not match an AnsType.")
         }
     }
