@@ -37,11 +37,10 @@ class LoginViewModel(private val app : Application) : BaseViewModel(app) {
         app.repository.getPatientData(
             app.requestQueue,
             { newPerson ->
-                app.repository.setPatientParameters(newPerson)
                 app.repository.submitPerson(newPerson)
                 loadQuizData()
             },
-            { msg -> errorMessage.value = msg }
+            { err -> error(err) }
         )
     }
 
@@ -49,7 +48,7 @@ class LoginViewModel(private val app : Application) : BaseViewModel(app) {
         app.repository.getPatientQuiz(
             app.requestQueue,
             { newQuiz -> app.repository.submitQuiz(newQuiz) },
-            { msg -> errorMessage.value = msg }
+            { err -> error(err) }
         )
     }
 }

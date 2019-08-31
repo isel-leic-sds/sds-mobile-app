@@ -28,6 +28,8 @@ class QuizActivity : BaseActivity<QuizViewModel>(){
             supportFragmentManager.beginTransaction().replace(R.id.frame_question, getFragmentByQuiz(quiz)).commit()
         })
 
+        viewModel.getQuiz()
+
         next_question_button.setOnClickListener {
             prev_question_button.visibility = View.VISIBLE
             supportFragmentManager.beginTransaction().replace(R.id.frame_question, getCurrentFragment()).commit()
