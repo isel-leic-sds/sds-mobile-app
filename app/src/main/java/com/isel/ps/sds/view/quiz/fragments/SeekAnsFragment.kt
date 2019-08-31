@@ -23,7 +23,8 @@ class SeekAnsFragment(var quest: Question) : Fragment() {
         root.seekBar_widget.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 // Write code to perform some action when progress is changed.
-                progessTextView.text=seekBar.progress.toString()
+               // progessTextView.text=seekBar.progress.toString()
+                progessTextView.text=quest.answerOptions.values[seekBar.progress]
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
@@ -48,7 +49,7 @@ class SeekAnsFragment(var quest: Question) : Fragment() {
         if(!quest.userAnswer.finalAnswer.equals("")) {
             var progress = quest.userAnswer.finalAnswer
             seekBar_widget.progress = progress.toInt()
-            progress_textView.text = progress
+            progress_textView.text = quest.answerOptions.values[progress.toInt()]
         }
     }
 

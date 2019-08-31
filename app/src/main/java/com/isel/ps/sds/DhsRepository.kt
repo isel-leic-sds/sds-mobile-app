@@ -142,16 +142,26 @@ class DhsRepository(
     fun parseJsonQuiz(quiz: JSONObject): Quiz {
         val questList: ArrayList<Question> = ArrayList()
         val listOfQuestions = quiz.getJSONArray("listOfQuestions")
+        var values = ArrayList<String>()
         for (i: Int in 0 until listOfQuestions.length()) {
             val quest = listOfQuestions.getJSONObject(i)
             val ans = quest.getJSONObject("possibleAnswers")
+
+            if (ans.has("values")) {
+                var jsonValues = ans.getJSONArray("values")
+
+                for (i in 0 until jsonValues.length()) {
+                    values.add(jsonValues.getString(i))
+                }
+            }
+
             val question = Question(
                 quest.getString("type"),
                 quest.getString("question"),
                 AnswerOptions(
                     ans.optString("option1", ""),
-                    ans.optString("option2", "")
-
+                    ans.optString("option2", ""),
+                    values
                 ),
                 UserAnswer()
             )

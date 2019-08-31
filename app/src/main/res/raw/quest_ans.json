@@ -12,7 +12,8 @@
       "type": "SeekBar",
       "question": "Intensidade da Dor?",
       "possibleAnswers": {
-        "option1": "5"
+        "option1": "5",
+        "values": ["sim","nao","talvez","assim assim","so po test"]
       }
     },
     {
