@@ -11,7 +11,6 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.isel.ps.sds.R
-import com.isel.ps.sds.view.clinicalHistory.data.ClinicalHistory
 import com.isel.ps.sds.view.clinicalHistory.data.ClinicalHistoryData
 import kotlinx.android.synthetic.main.fragment_history_binary.*
 
@@ -29,21 +28,15 @@ class HistoryBinaryFragment (var clinicalHistory: ClinicalHistoryData) : Fragmen
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        var pieChart = pieChart
-        // pieChart.setUsePercentValues(true)
+        val pieChart = pieChart
         pieChart.description.isEnabled = false
         pieChart.setExtraOffsets(5F, 10F, 5F, 5F)
-
         pieChart.dragDecelerationFrictionCoef = 0.99F
-
         pieChart.isDrawHoleEnabled = false
         pieChart.setHoleColor(Color.WHITE)
         pieChart.transparentCircleRadius = 61F
 
-
-        var yValues = ArrayList<PieEntry>()
-
-
+        val yValues = ArrayList<PieEntry>()
         yValues.add(
             PieEntry(
                 clinicalHistory.answers[0].userAnswer[0].toFloat(),
@@ -57,16 +50,14 @@ class HistoryBinaryFragment (var clinicalHistory: ClinicalHistoryData) : Fragmen
             )
         )
 
-
-        var dataSet = PieDataSet(yValues, clinicalHistory.question)
+        val dataSet = PieDataSet(yValues, clinicalHistory.question)
         dataSet.sliceSpace = 3F
         dataSet.selectionShift = 5F
-        dataSet.setColors(ColorTemplate.COLORFUL_COLORS.asList())
+        dataSet.colors = ColorTemplate.COLORFUL_COLORS.asList()
 
-        var data = PieData(dataSet)
+        val data = PieData(dataSet)
         data.setValueTextSize(10F)
         data.setValueTextColor(Color.YELLOW)
         pieChart.data = data
-
     }
 }

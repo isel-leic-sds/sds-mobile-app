@@ -1,19 +1,13 @@
 package com.isel.ps.sds.view.clinicalHistory
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.isel.ps.sds.FragmentAnsFactory
 import com.isel.ps.sds.R
 import com.isel.ps.sds.view.BaseActivity
 import com.isel.ps.sds.view.clinicalHistory.data.ClinicalHistory
-import com.isel.ps.sds.view.clinicalHistory.fragments.HistoryBinaryFragment
-import com.isel.ps.sds.view.clinicalHistory.fragments.HistorySeekFragment
-import com.isel.ps.sds.view.menu.MenuActivity
-import com.isel.ps.sds.view.quiz.data.Quiz
 import kotlinx.android.synthetic.main.activity_loading.*
 
 class ClinicalHistoryActivity : BaseActivity<ClinicalHistoryViewModel>() {
