@@ -37,15 +37,17 @@ class HistoryBinaryFragment (var clinicalHistory: ClinicalHistoryData) : Fragmen
         pieChart.transparentCircleRadius = 61F
 
         val yValues = ArrayList<PieEntry>()
+
+
         yValues.add(
             PieEntry(
-                clinicalHistory.answers[0].userAnswer[0].toFloat(),
+                clinicalHistory.answers[0].userAnswer.size.toFloat(),
                 clinicalHistory.answers[0].answer
             )
         )
         yValues.add(
             PieEntry(
-                clinicalHistory.answers[1].userAnswer[0].toFloat(),
+                clinicalHistory.answers[1].userAnswer.size.toFloat(),
                 clinicalHistory.answers[1].answer
             )
         )

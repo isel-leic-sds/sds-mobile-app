@@ -15,7 +15,7 @@ object ClinicalHistoryRepository {
         var data: MutableLiveData<ClinicalHistory> = MutableLiveData();
 
 
-        val inputStream: InputStream = context.resources.openRawResource(R.raw.user_ans_data)
+        val inputStream: InputStream = context.resources.openRawResource(R.raw.history_clinical_data)
         val inputString = inputStream.bufferedReader().use { it.readText() }
         val obj = JSONObject(inputString)
         val clinicalHistory = obj.getJSONArray("clinicalHistory") //Array ClinicalHistory

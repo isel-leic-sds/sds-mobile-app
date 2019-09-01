@@ -1,0 +1,160 @@
+{
+  "_id": {
+    "$oid": "5d6bafdf803fea4c8c53638b"
+  },
+  "name": "9-2019",
+  "clinicalHistory": [
+    {
+      "type": "Schedule",
+      "question": "Presença da Dor?",
+      "answers": [
+        {
+          "answer": "SIM",
+          "userAnswer": [
+            "1"
+          ]
+        },
+        {
+          "answer": "NÃO",
+          "userAnswer": []
+        }
+      ]
+    },
+    {
+      "type": "SeekBar",
+      "question": "Intensidade da Dor?",
+      "answers": [
+        {
+          "answer": "0",
+          "userAnswer": []
+        },
+        {
+          "answer": "1",
+          "userAnswer": []
+        },
+        {
+          "answer": "2",
+          "userAnswer": [
+            "1"
+          ]
+        },
+        {
+          "answer": "3",
+          "userAnswer": []
+        },
+        {
+          "answer": "4",
+          "userAnswer": []
+        },
+        {
+          "answer": "5",
+          "userAnswer": []
+        }
+      ]
+    },
+    {
+      "type": "Binary",
+      "question": "Tomou Medicação de Resgaste?",
+      "answers": [
+        {
+          "answer": "SIM",
+          "userAnswer": [
+            "1"
+          ]
+        },
+        {
+          "answer": "NÃO",
+          "userAnswer": []
+        }
+      ]
+    },
+    {
+      "type": "SeekBar",
+      "question": "Como estava a dor quando tomou a medicação?",
+      "answers": [
+        {
+          "answer": "0",
+          "userAnswer": []
+        },
+        {
+          "answer": "1",
+          "userAnswer": []
+        },
+        {
+          "answer": "2",
+          "userAnswer": [
+            "1"
+          ]
+        },
+        {
+          "answer": "3",
+          "userAnswer": []
+        }
+      ]
+    },
+    {
+      "type": "SeekBar",
+      "question": "Como estava a dor após 1 hora?",
+      "answers": [
+        {
+          "answer": "0",
+          "userAnswer": []
+        },
+        {
+          "answer": "1",
+          "userAnswer": [
+            "1"
+          ]
+        },
+        {
+          "answer": "2",
+          "userAnswer": []
+        },
+        {
+          "answer": "3",
+          "userAnswer": []
+        }
+      ]
+    },
+    {
+      "type": "SeekBar",
+      "question": "Como estava a dor após 2 horas?",
+      "answers": [
+        {
+          "answer": "0",
+          "userAnswer": [
+            "1"
+          ]
+        },
+        {
+          "answer": "1",
+          "userAnswer": []
+        },
+        {
+          "answer": "2",
+          "userAnswer": []
+        },
+        {
+          "answer": "3",
+          "userAnswer": []
+        }
+      ]
+    },
+    {
+      "type": "Binary",
+      "question": "Houve vómitos ou efeitos colaterais indesejaveis?",
+      "answers": [
+        {
+          "answer": "SIM",
+          "userAnswer": []
+        },
+        {
+          "answer": "NÃO",
+          "userAnswer": [
+            "1"
+          ]
+        }
+      ]
+    }
+  ]
+}
