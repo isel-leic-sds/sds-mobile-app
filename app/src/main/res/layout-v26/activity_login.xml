@@ -77,16 +77,6 @@
             android:orientation="vertical">
 
             <EditText
-                    android:id="@+id/userIDEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:hint="@string/userID"
-                    android:textColor="@color/colorTextView"
-                    android:textColorHint="@color/colorAccent"
-                    android:textSize="15sp" android:inputType="" android:autofillHints=""/>
-
-            <EditText
                     android:id="@+id/userNameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
