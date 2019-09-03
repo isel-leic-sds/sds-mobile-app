@@ -25,6 +25,8 @@ class ClinicalHistoryActivity : BaseActivity<ClinicalHistoryViewModel>() {
             supportFragmentManager.beginTransaction().replace(R.id.frame_question, getFragmentByClinicalHist(clinicalHistory)).commit()
         })
 
+        viewModel.getClinicalHistory()
+
         next_question_button.setOnClickListener {
             prev_question_button.visibility = View.VISIBLE
             supportFragmentManager.beginTransaction().replace(R.id.frame_question, getCurrentFragment()).commit()

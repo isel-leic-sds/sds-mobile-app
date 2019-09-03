@@ -4,6 +4,10 @@ import android.content.Context
 import android.os.AsyncTask
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
+import com.google.gson.GsonBuilder
+import com.isel.ps.sds.view.clinicalHistory.data.ClinicalHistory
+import com.isel.ps.sds.view.clinicalHistory.data.ClinicalHistoryAnswer
+import com.isel.ps.sds.view.clinicalHistory.data.ClinicalHistoryData
 import com.isel.ps.sds.view.login.LoginFactory.Login
 import com.isel.ps.sds.view.profile.Person
 import com.isel.ps.sds.view.profile.PersonDao
@@ -11,6 +15,9 @@ import com.isel.ps.sds.view.profile.SosContact
 import com.isel.ps.sds.view.quiz.data.*
 import org.json.JSONObject
 import java.sql.Date
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DhsRepository(
     val context: DigitalHealthSystemApplication,
@@ -19,6 +26,7 @@ class DhsRepository(
 ) {
 
     private val baseUrl = "https://sds-web-app.herokuapp.com/sds/api/v1"
+    private val historyUrl = "$baseUrl/patients/history"
     private val patientUrl = "$baseUrl/patient"
     private val loginUrl = "$patientUrl/login"
     private val dailyQuizUrl = "$patientUrl/ans"
@@ -110,7 +118,8 @@ class DhsRepository(
         onError: (Exception) -> Unit
     ) {
         val body = JSONObject()
-        body.put(quiz_ID, quiz.questions)
+        val gson = GsonBuilder().setPrettyPrinting().create()
+        body.put(quiz_ID, gson.toJson(quiz))
         val sdsId = sharedPreferences.getString(sdsId_ID, defaultValue)
 
         val request = object : JsonObjectRequest(
@@ -216,6 +225,59 @@ class DhsRepository(
         } else {
             provideNewQuiz(quizDao.getQuiz().value)
         }
+    }
+
+    fun getQuizResults(
+        queue: RequestQueue,
+        onSuccess: (ClinicalHistory) -> Unit,
+        onError: (Exception) -> Unit
+    ) {
+        val sdsId = sharedPreferences.getString(sdsId_ID, defaultValue)
+        val calendar = Calendar.getInstance()
+        val mdformat = SimpleDateFormat("yyyy/MM/dd")
+        val strDate = mdformat.format(calendar.time).split("/")
+        val year = strDate[0]
+        val month = strDate[1].removePrefix("0")
+
+        val request = object : JsonObjectRequest(
+            Method.GET,
+            "$historyUrl/$sdsId?month=${month}&year=${year}",
+            null,
+            { q -> onSuccess(parseJsonQuizResults(q)) },
+            { err -> onError(err) }
+        ) {}
+        queue.add(request)
+    }
+
+    fun parseJsonQuizResults(obj: JSONObject): ClinicalHistory {
+        val clinicalHistory = obj.getJSONArray("clinicalHistory") //Array ClinicalHistory
+        val chDataList: ArrayList<ClinicalHistoryData> = ArrayList()
+        var clinicalHistoryData: ClinicalHistoryData = ClinicalHistoryData()
+
+        for (i: Int in 0 until clinicalHistory.length()) {
+            val chData = clinicalHistory.getJSONObject(i)
+            val type = chData.getString("type")
+            val quest = chData.getString("question")
+            val answers = chData.getJSONArray("answers")
+            clinicalHistoryData = ClinicalHistoryData()
+            val answersList: ArrayList<ClinicalHistoryAnswer> = ArrayList()
+            var chAnswer: ClinicalHistoryAnswer
+            for (i: Int in 0 until answers.length()) {
+                val answer = answers.getJSONObject(i)
+                val ans = answer.getString("answer")
+                val userAnswer = answer.getJSONArray("userAnswer")
+                val userAnswers: ArrayList<String> = ArrayList()
+                for (i: Int in 0 until userAnswer.length()) {
+                    userAnswers.add(userAnswer.get(i).toString())
+                }
+                chAnswer = ClinicalHistoryAnswer(ans, userAnswers)
+                answersList.add(chAnswer)
+                clinicalHistoryData = ClinicalHistoryData(type, quest, answersList)
+            }
+            chDataList.add(clinicalHistoryData)
+        }
+        chDataList.add(ClinicalHistoryData("Final"))
+        return ClinicalHistory(chDataList)
     }
 }
 
