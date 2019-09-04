@@ -8,12 +8,12 @@ import androidx.lifecycle.MutableLiveData
 abstract class BaseViewModel(app: Application) : AndroidViewModel(app) {
 
     val isLoading = MutableLiveData<Boolean>()
-    private val error = MutableLiveData<Exception>()
+    val error = MutableLiveData<Exception>()
 
     fun provideLoadingState(): LiveData<Boolean> = isLoading
     fun provideErrors(): LiveData<Exception> = error
 
-    fun error(value: Exception) {
+    fun setError(value: Exception) {
         error.value = value
         isLoading.value = false
     }

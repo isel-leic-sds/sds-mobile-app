@@ -123,6 +123,7 @@ class DhsRepository(
         val sdsId = sharedPreferences.getString(sdsId_ID, defaultValue)
 
         val request = object : JsonObjectRequest(
+
             Method.POST,
             "$dailyQuizUrl/$sdsId",
             body,
@@ -151,19 +152,16 @@ class DhsRepository(
     fun parseJsonQuiz(quiz: JSONObject): Quiz {
         val questList: ArrayList<Question> = ArrayList()
         val listOfQuestions = quiz.getJSONArray("listOfQuestions")
-        var values = ArrayList<String>()
+        val values = ArrayList<String>()
         for (i: Int in 0 until listOfQuestions.length()) {
             val quest = listOfQuestions.getJSONObject(i)
             val ans = quest.getJSONObject("possibleAnswers")
-
             if (ans.has("values")) {
-                var jsonValues = ans.getJSONArray("values")
-
+                val jsonValues = ans.getJSONArray("values")
                 for (i in 0 until jsonValues.length()) {
                     values.add(jsonValues.getString(i))
                 }
             }
-
             val question = Question(
                 quest.getString("type"),
                 quest.getString("question"),
@@ -252,7 +250,7 @@ class DhsRepository(
     fun parseJsonQuizResults(obj: JSONObject): ClinicalHistory {
         val clinicalHistory = obj.getJSONArray("clinicalHistory") //Array ClinicalHistory
         val chDataList: ArrayList<ClinicalHistoryData> = ArrayList()
-        var clinicalHistoryData: ClinicalHistoryData = ClinicalHistoryData()
+        var clinicalHistoryData: ClinicalHistoryData
 
         for (i: Int in 0 until clinicalHistory.length()) {
             val chData = clinicalHistory.getJSONObject(i)

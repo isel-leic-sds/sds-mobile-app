@@ -40,6 +40,7 @@ class QuizActivity : BaseActivity<QuizViewModel>(){
         }
 
         submit_quiz_button.setOnClickListener {
+            submit_quiz_button.isEnabled = false
             viewModel.submitQuiz()
         }
 
@@ -47,8 +48,20 @@ class QuizActivity : BaseActivity<QuizViewModel>(){
             if (success) {
                 Toast.makeText(this, getString(R.string.submitQuiz), Toast.LENGTH_LONG).show()
                 renderMenuActivity()
+            } else {
+                submit_quiz_button.isEnabled = true
             }
         })
+
+        viewModel.error.observe(
+            this,
+            Observer {
+                Toast.makeText(
+                    this,
+                    getString(R.string.quizFailedMessage),
+                    Toast.LENGTH_LONG
+                ).show()
+            })
     }
 
     private fun getFragmentByQuiz(quiz: Quiz): Fragment {

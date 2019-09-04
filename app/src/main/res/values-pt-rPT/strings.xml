@@ -4,7 +4,7 @@
     <string name="phone_number">Telefone</string>
     <string name="sos_contact">Contacto SOS</string>
     <string name="userName">Nome</string>
-    <string name="final_message">Terminou. Clique next para submeter as suas respostas. Obrigado!</string>
+    <string name="final_message">Terminou. Clique submeter para submeter as suas respostas. Obrigado!</string>
     <string name="next">Próxima</string>
     <string name="prev_question_button">Voltar</string>
     <string name="question">Pergunta</string>
@@ -20,4 +20,6 @@
     <string name="daily_desc">Diário</string>
     <string name="historical_clinic">Historial Clínico</string>
     <string name="password" translatable="false">Palavra passe</string>
+    <string name="loginFailedMessage">O Login Falhou. Tente novamente!</string>
+    <string name="quizFailedMessage">O questionário não foi submetido com sucesso. Por favor tente novamente!</string>
 </resources>

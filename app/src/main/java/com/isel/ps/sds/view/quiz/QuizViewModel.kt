@@ -15,7 +15,7 @@ class QuizViewModel(private val app : Application) : BaseViewModel(app) {
         app.repository.getQuiz(
             { newQuiz -> quiz.value = newQuiz },
             { newQuiz -> app.repository.submitQuiz(newQuiz) },
-            { err -> error(err) }
+            { err -> setError(err) }
         )
     }
 
@@ -37,5 +37,8 @@ class QuizViewModel(private val app : Application) : BaseViewModel(app) {
         app.requestQueue,
         quiz.value!!,
         { isLoading.value = true },
-        { err -> error(err) })
+        { err ->
+            isLoading.value = false
+            setError(err)
+        })
 }

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.isel.ps.sds.R
 import com.isel.ps.sds.view.BaseActivity
@@ -30,7 +29,7 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
         })
 
         viewModel.getErrorMessage().observe(this, Observer<String> {
-            Toast.makeText(this, "Login failed. Try Again!: $it", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.loginFailedMessage), Toast.LENGTH_LONG).show()
         })
 
         loginButton.setOnClickListener {

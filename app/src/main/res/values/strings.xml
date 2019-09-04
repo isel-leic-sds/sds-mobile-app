@@ -30,6 +30,7 @@
     <string name="sds_title_short">SDS (DHS)</string>
     <string name="sds_title_long">Digital Health System</string>
     <string name="sds_title_long_caps">DIGITAL HEALTH SYSTEM</string>
+    <string name="quizFailedMessage">The quiz has not been successfully submitted. Please try again!</string>
 
     <!--Menu-->
     <string name="profile_desc" translatable="false">Profile</string>
@@ -37,6 +38,7 @@
     <string name="alert_settings_desc" translatable="false">Alert Settings</string>
 	<string name="submitQuiz">The quiz has been successfully submitted!</string>
 	<string name="historical_clinic">Historical Clinic</string>
+    <string name="loginFailedMessage">Login failed. Try Again!</string>
 
 	<!--Profil-->
     <!--Daily-->
