@@ -4,14 +4,14 @@
     <string name="skip" translatable="false"></string>
     <string name="login" translatable="false">Login</string>
     <string name="email" translatable="false">Email</string>
-    <string name="password" translatable="false">Password</string>
+    <string name="password">Password</string>
 
-    <string name="userName">User Name</string>
-    <string name="userID">User ID</string>
+    <string name="userName">Name</string>
+    <string name="userID" translatable="false">SDS ID</string>
     <string name="name">Name</string>
-    <string name="dailyBtn">Daily</string>
-    <string name="historyBtn">History</string>
-    <string name="profileBtn">Profile</string>
+    <string name="dailyBtn" translatable="false">daily_btn</string>
+    <string name="historyBtn" translatable="false">history_btn</string>
+    <string name="profileBtn" translatable="false">profile_btn</string>
     <string name="button" translatable="false">nextBtn</string>
     <string name="sos_contact">SOS Contact</string>
     <string name="phone_number">Phone Number:</string>
@@ -19,21 +19,21 @@
 
     <string name="question">Question</string>
     <string name="prev_question_button">Prev</string>
-    <string name="final_message">finished click next to submit your answer</string>
+    <string name="final_message">Finished. Click next to submit your answers. Thank you!</string>
     <string name="submit">Submit</string>
-    <string name="notify_Schedule_Text">what the time do you pertend receive a notify?</string>
+    <string name="notify_Schedule_Text">What time do you pertend to receive the notification?</string>
     <string name="header_Notification" translatable="false">Quiz</string>
-    <string name="notification_message">Don\'t Forget to do Quiz</string>
+    <string name="notification_message">Do not Forget to do the Quiz</string>
 
     <!--General-->
     <string name="app_name" translatable="false">SDS</string>
-    <string name="sds_title_short">SDS</string>
-    <string name="sds_title_long">Sistema Digital de Saúde</string>
-    <string name="sds_title_long_caps">SISTEMA DIGITAL DE SAÚDE</string>
+    <string name="sds_title_short">SDS (DHS)</string>
+    <string name="sds_title_long">Digital Health System</string>
+    <string name="sds_title_long_caps">DIGITAL HEALTH SYSTEM</string>
 
     <!--Menu-->
     <string name="profile_desc" translatable="false">Profile</string>
-    <string name="daily_desc" translatable="false">Daily</string>
+    <string name="daily_desc">Daily</string>
     <string name="alert_settings_desc" translatable="false">Alert Settings</string>
 	<string name="submitQuiz">The quiz has been successfully submitted!</string>
 	<string name="historical_clinic">Historical Clinic</string>

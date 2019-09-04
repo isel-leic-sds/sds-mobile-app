@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="historyBtn">Historico</string>
     <string name="name">Nome</string>
     <string name="phone_number">Telefone</string>
-    <string name="profileBtn">Prefil</string>
     <string name="sos_contact">Contacto SOS</string>
-    <string name="userID">ID de Utilizador</string>
     <string name="userName">Nome</string>
-    <string name="dailyBtn">Diario</string>
     <string name="final_message">Terminou. Clique next para submeter as suas respostas. Obrigado!</string>
     <string name="next">Próxima</string>
     <string name="prev_question_button">Voltar</string>
@@ -17,8 +13,11 @@
     <string name="notification_message">Não se esqueça do Quiz</string>
 
     <!--General-->
-    <string name="sds_title_short">SDS (DHS)</string>
-    <string name="sds_title_long">Digital Health System</string>
-    <string name="sds_title_long_caps">DIGITAL HEALTH SYSTEM</string>
+    <string name="sds_title_short">SDS</string>
+    <string name="sds_title_long">Sistema Digital de Saúde</string>
+    <string name="sds_title_long_caps">SISTEMA DIGITAL DE SAÚDE</string>
 	<string name="submitQuiz">O questionário foi submetido com sucesso!</string>
+    <string name="daily_desc">Diário</string>
+    <string name="historical_clinic">Historial Clínico</string>
+    <string name="password" translatable="false">Palavra passe</string>
 </resources>
